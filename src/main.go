@@ -1,12 +1,16 @@
 package main
 
 import (
-	"fmt"
 	. "saikumo.org/simple-douyin/src/config"
+	"saikumo.org/simple-douyin/src/router"
 	"strconv"
 )
 
 func main() {
+	r := router.InitRouter()
 	addr := strconv.Itoa(Config.GetInt("server.port"))
-	fmt.Println(addr)
+
+	if err := r.Run(":" + addr); err != nil {
+		panic(err)
+	}
 }
