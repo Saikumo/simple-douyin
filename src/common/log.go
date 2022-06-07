@@ -4,7 +4,7 @@ import "go.uber.org/zap"
 
 var Logger *zap.SugaredLogger
 
-func init() {
+func InitLogger() {
 	noSugarLogger, err := zap.NewDevelopment()
 	if err != nil {
 		panic(err)

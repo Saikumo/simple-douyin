@@ -4,7 +4,7 @@ import "github.com/spf13/viper"
 
 var Config = viper.New()
 
-func init() {
+func InitConfig() {
 	Config.AddConfigPath("./")          //设置配置文件路径
 	Config.SetConfigName("application") //设置配置文件名
 	Config.SetConfigType("yaml")        //设置配置文件类型
