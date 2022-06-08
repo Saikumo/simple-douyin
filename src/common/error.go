@@ -9,4 +9,8 @@ var (
 	PasswordLengthNotValidError    = errors.New("密码长度必须为6到32个字符")
 	UsernameAlreadyExistError      = errors.New("用户名已经存在")
 	UsernameOrPasswordIsWrongError = errors.New("用户名或密码错误")
+	TokenIsNotValid                = errors.New("token不正确")
+	TokenIsExpired                 = errors.New("token已过期")
+	TokenIsNotExist                = errors.New("token不存在")
+	UserIsNotExist                 = errors.New("用户不存在")
 )

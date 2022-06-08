@@ -15,7 +15,7 @@ func UserRegister(c *gin.Context) {
 
 	if err != nil {
 		c.JSON(http.StatusOK, dto.UserRegisterResponse{
-			Response: dto.Response{
+			Response: &dto.Response{
 				StatusCode: 1,
 				StatusMsg:  err.Error(),
 			},
@@ -34,7 +34,7 @@ func UserLogin(c *gin.Context) {
 
 	if err != nil {
 		c.JSON(http.StatusOK, dto.UserLoginResponse{
-			Response: dto.Response{
+			Response: &dto.Response{
 				StatusCode: 1,
 				StatusMsg:  err.Error(),
 			},
@@ -43,4 +43,23 @@ func UserLogin(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, userLoginResponse)
+}
+
+func UserInfo(c *gin.Context) {
+	userIdStr, _ := c.Get("user_id")
+	userId := userIdStr.(int64)
+
+	userInfoResponse, err := service.UserInfo(userId)
+
+	if err != nil {
+		c.JSON(http.StatusOK, dto.UserInfoResponse{
+			Response: &dto.Response{
+				StatusCode: 1,
+				StatusMsg:  err.Error(),
+			},
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, userInfoResponse)
 }

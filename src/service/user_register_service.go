@@ -19,6 +19,7 @@ type userRegisterFlow struct {
 }
 
 func UserRegister(username string, password string) (*dto.UserRegisterResponse, error) {
+	common.Logger.Infof("用户注册，用户名为%s", username)
 	return newUserRegisterFlow(username, password).do()
 }
 
@@ -86,7 +87,7 @@ func (flow *userRegisterFlow) register() error {
 
 func (flow *userRegisterFlow) packResponse() {
 	flow.response = &dto.UserRegisterResponse{
-		Response: dto.Response{
+		Response: &dto.Response{
 			StatusCode: 0,
 		},
 		UserId: flow.userId,

@@ -2,6 +2,7 @@ package main
 
 import (
 	"saikumo.org/simple-douyin/src/common"
+	"saikumo.org/simple-douyin/src/controller"
 	"saikumo.org/simple-douyin/src/repository"
 )
 
@@ -10,5 +11,5 @@ func main() {
 	common.InitConfig()
 	common.InitLogger()
 	repository.InitDB()
-	common.InitRouter()
+	controller.InitRouter()
 }

@@ -18,6 +18,7 @@ type userLoginFlow struct {
 }
 
 func UserLogin(username string, password string) (*dto.UserLoginResponse, error) {
+	common.Logger.Infof("用户登录，用户名为%s", username)
 	return newUserLoginFlow(username, password).do()
 }
 
@@ -81,7 +82,7 @@ func (flow *userLoginFlow) login() error {
 
 func (flow *userLoginFlow) packResponse() {
 	flow.response = &dto.UserLoginResponse{
-		Response: dto.Response{
+		Response: &dto.Response{
 			StatusCode: 0,
 		},
 		UserId: flow.userId,
