@@ -1,4 +1,4 @@
-package enum
+package common
 
 const (
 	MAX_USERNAME_LENGTH int = 32

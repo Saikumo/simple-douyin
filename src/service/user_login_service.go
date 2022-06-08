@@ -1,9 +1,8 @@
 package service
 
 import (
-	"errors"
+	"saikumo.org/simple-douyin/src/common"
 	"saikumo.org/simple-douyin/src/dto"
-	"saikumo.org/simple-douyin/src/enum"
 	"saikumo.org/simple-douyin/src/repository"
 	"saikumo.org/simple-douyin/src/util"
 )
@@ -46,19 +45,19 @@ func (flow *userLoginFlow) do() (*dto.UserLoginResponse, error) {
 func (flow *userLoginFlow) checkParam() error {
 	//用户名为空
 	if flow.username == "" {
-		return errors.New(enum.USERNAME_IS_NULL)
+		return common.UsernameIsNullError
 	}
 	//用户名超过最大长度
-	if len(flow.username) > enum.MAX_USERNAME_LENGTH {
-		return errors.New(enum.USERNAME_OVER_MAX_LENGTH)
+	if len(flow.username) > common.MAX_USERNAME_LENGTH {
+		return common.UsernameOverMaxLengthError
 	}
 	//密码为空
 	if flow.password == "" {
-		return errors.New(enum.PASSWORD_IS_NULL)
+		return common.PasswordIsNullError
 	}
 	//密码长度不合法
-	if len(flow.password) < enum.MIN_PASSWORD_LENGTH || len(flow.password) > enum.MAX_PASSWORD_LENGTH {
-		return errors.New(enum.PASSWORD_LENGTH_NOT_VALID)
+	if len(flow.password) < common.MIN_PASSWORD_LENGTH || len(flow.password) > common.MAX_PASSWORD_LENGTH {
+		return common.PasswordLengthNotValidError
 	}
 	return nil
 }
@@ -68,7 +67,7 @@ func (flow *userLoginFlow) login() error {
 	//验证用户名密码
 	user := userRepository.FindUserByUsernameAndPassword(flow.username, flow.password)
 	if user.Id == 0 {
-		return errors.New(enum.USERNAME_OR_PASSWORD_IS_WRONG)
+		return common.UsernameOrPasswordIsWrongError
 	}
 	flow.userId = user.Id
 	//生成token

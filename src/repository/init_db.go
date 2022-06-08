@@ -4,7 +4,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	. "saikumo.org/simple-douyin/src/config"
+	. "saikumo.org/simple-douyin/src/common"
 	"saikumo.org/simple-douyin/src/entity"
 )
 

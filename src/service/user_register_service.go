@@ -1,10 +1,9 @@
 package service
 
 import (
-	"errors"
+	"saikumo.org/simple-douyin/src/common"
 	"saikumo.org/simple-douyin/src/dto"
 	"saikumo.org/simple-douyin/src/entity"
-	"saikumo.org/simple-douyin/src/enum"
 	"saikumo.org/simple-douyin/src/repository"
 	"saikumo.org/simple-douyin/src/util"
 )
@@ -47,19 +46,19 @@ func (flow *userRegisterFlow) do() (*dto.UserRegisterResponse, error) {
 func (flow *userRegisterFlow) checkParam() error {
 	//用户名为空
 	if flow.username == "" {
-		return errors.New(enum.USERNAME_IS_NULL)
+		return common.UsernameIsNullError
 	}
 	//用户名超过最大长度
-	if len(flow.username) > enum.MAX_USERNAME_LENGTH {
-		return errors.New(enum.USERNAME_OVER_MAX_LENGTH)
+	if len(flow.username) > common.MAX_USERNAME_LENGTH {
+		return common.UsernameOverMaxLengthError
 	}
 	//密码为空
 	if flow.password == "" {
-		return errors.New(enum.PASSWORD_IS_NULL)
+		return common.PasswordIsNullError
 	}
 	//密码长度不合法
-	if len(flow.password) < enum.MIN_PASSWORD_LENGTH || len(flow.password) > enum.MAX_PASSWORD_LENGTH {
-		return errors.New(enum.PASSWORD_LENGTH_NOT_VALID)
+	if len(flow.password) < common.MIN_PASSWORD_LENGTH || len(flow.password) > common.MAX_PASSWORD_LENGTH {
+		return common.PasswordLengthNotValidError
 	}
 	return nil
 }
@@ -68,7 +67,7 @@ func (flow *userRegisterFlow) register() error {
 	userRepository := repository.GetUserRepository()
 	//检测用户是否存在
 	if userRepository.IsUserExistByUsername(flow.username) {
-		return errors.New(enum.USERNAME_ALREADY_EXIST)
+		return common.UsernameAlreadyExistError
 	}
 	//创建用户
 	user := entity.User{Username: flow.username, Password: flow.password}

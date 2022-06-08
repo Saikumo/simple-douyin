@@ -1,8 +1,7 @@
-package router
+package common
 
 import (
 	"github.com/gin-gonic/gin"
-	. "saikumo.org/simple-douyin/src/config"
 	"saikumo.org/simple-douyin/src/controller"
 	"strconv"
 )

@@ -1,13 +1,13 @@
 package repository
 
 import (
-	"saikumo.org/simple-douyin/src/config"
+	"saikumo.org/simple-douyin/src/common"
 	"saikumo.org/simple-douyin/src/entity"
 	"testing"
 )
 
 func TestDB(t *testing.T) {
-	config.InitConfigByPath("../../")
+	common.InitConfigByPath("../../")
 	InitDB()
 
 	user := entity.User{
