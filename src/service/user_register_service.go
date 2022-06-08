@@ -87,6 +87,9 @@ func (flow *userRegisterFlow) register() error {
 
 func (flow *userRegisterFlow) packResponse() {
 	flow.response = &dto.UserRegisterResponse{
+		Response: dto.Response{
+			StatusCode: 0,
+		},
 		UserId: flow.userId,
 		Token:  flow.token,
 	}

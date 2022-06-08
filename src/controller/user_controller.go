@@ -16,7 +16,7 @@ func UserRegister(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusOK, dto.UserRegisterResponse{
 			Response: dto.Response{
-				StatusCode: 400,
+				StatusCode: 1,
 				StatusMsg:  err.Error(),
 			},
 		})
@@ -35,7 +35,7 @@ func UserLogin(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusOK, dto.UserLoginResponse{
 			Response: dto.Response{
-				StatusCode: 400,
+				StatusCode: 1,
 				StatusMsg:  err.Error(),
 			},
 		})
