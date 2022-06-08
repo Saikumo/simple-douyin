@@ -21,6 +21,12 @@ func GetUserRepository() *UserRepository {
 	return userRepository
 }
 
+func (repository *UserRepository) FindUserByUsernameAndPassword(username string, password string) *entity.User {
+	var user entity.User
+	DB.Where("username=? and password=?", username, password).Take(&user)
+	return &user
+}
+
 func (repository *UserRepository) IsUserExistByUsername(username string) bool {
 	var user entity.User
 	DB.Where("username=?", username).Take(&user)

@@ -25,3 +25,22 @@ func UserRegister(c *gin.Context) {
 
 	c.JSON(http.StatusOK, userRegisterResponse)
 }
+
+func UserLogin(c *gin.Context) {
+	username := c.Query("username")
+	password := c.Query("password")
+
+	userLoginResponse, err := service.UserLogin(username, password)
+
+	if err != nil {
+		c.JSON(http.StatusOK, dto.UserLoginResponse{
+			Response: dto.Response{
+				StatusCode: 400,
+				StatusMsg:  err.Error(),
+			},
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, userLoginResponse)
+}

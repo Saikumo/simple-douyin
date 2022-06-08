@@ -13,6 +13,7 @@ func InitRouter() {
 	douyinRouter := r.Group("/douyin")
 
 	douyinRouter.POST("/user/register/", controller.UserRegister)
+	douyinRouter.POST("/user/login/", controller.UserLogin)
 
 	addr := strconv.Itoa(Config.GetInt("server.port"))
 	if err := r.Run(":" + addr); err != nil {
