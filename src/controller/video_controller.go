@@ -33,8 +33,3 @@ func VideoFeed(c *gin.Context) {
 
 	c.JSON(http.StatusOK, videoFeedResponse)
 }
-
-func videoFeedError(c *gin.Context, err error) {
-
-	return
-}
