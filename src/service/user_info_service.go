@@ -49,7 +49,7 @@ func (flow *userInfoFlow) info() error {
 func (flow *userInfoFlow) packResponse() {
 	flow.response = &dto.UserInfoResponse{
 		Response: &dto.Response{
-			StatusCode: 0,
+			StatusCode: common.SUCCESS_STATUS_CODE,
 		},
 		UserInfo: &dto.UserInfo{
 			Id:       flow.user.Id,

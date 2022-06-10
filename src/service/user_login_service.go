@@ -83,7 +83,7 @@ func (flow *userLoginFlow) login() error {
 func (flow *userLoginFlow) packResponse() {
 	flow.response = &dto.UserLoginResponse{
 		Response: &dto.Response{
-			StatusCode: 0,
+			StatusCode: common.SUCCESS_STATUS_CODE,
 		},
 		UserId: flow.userId,
 		Token:  flow.token,
