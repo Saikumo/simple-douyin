@@ -2,9 +2,7 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"saikumo.org/simple-douyin/src/common"
-	"saikumo.org/simple-douyin/src/dto"
 	"saikumo.org/simple-douyin/src/util"
 )
 
@@ -18,18 +16,14 @@ func JwtAuth() gin.HandlerFunc {
 		}
 		//没有token
 		if token == "" {
-			c.JSON(http.StatusOK, dto.Response{
-				StatusCode: 1,
-				StatusMsg:  common.TokenIsNotExist.Error(),
-			})
+			common.ResponseError(c, common.TokenIsNotExist)
+			return
 		}
 		//校验并解析token
 		claims, err := util.CheckToken(token)
 		if err != nil {
-			c.JSON(http.StatusOK, dto.Response{
-				StatusCode: 1,
-				StatusMsg:  err.Error(),
-			})
+			common.ResponseError(c, err)
+			return
 		}
 
 		c.Set("user_id", claims.UserId)

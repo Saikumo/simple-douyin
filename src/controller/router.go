@@ -10,6 +10,8 @@ import (
 func InitRouter() {
 	r := gin.Default()
 
+	r.Static("/static/", "./static")
+
 	douyinRouter := r.Group("/douyin")
 
 	userRouter := douyinRouter.Group("/user")

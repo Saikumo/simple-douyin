@@ -3,7 +3,7 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"saikumo.org/simple-douyin/src/dto"
+	"saikumo.org/simple-douyin/src/common"
 	"saikumo.org/simple-douyin/src/service"
 )
 
@@ -14,12 +14,7 @@ func UserRegister(c *gin.Context) {
 	userRegisterResponse, err := service.UserRegister(username, password)
 
 	if err != nil {
-		c.JSON(http.StatusOK, dto.UserRegisterResponse{
-			Response: &dto.Response{
-				StatusCode: 1,
-				StatusMsg:  err.Error(),
-			},
-		})
+		common.ResponseError(c, err)
 		return
 	}
 
@@ -33,12 +28,7 @@ func UserLogin(c *gin.Context) {
 	userLoginResponse, err := service.UserLogin(username, password)
 
 	if err != nil {
-		c.JSON(http.StatusOK, dto.UserLoginResponse{
-			Response: &dto.Response{
-				StatusCode: 1,
-				StatusMsg:  err.Error(),
-			},
-		})
+		common.ResponseError(c, err)
 		return
 	}
 
@@ -52,12 +42,7 @@ func UserInfo(c *gin.Context) {
 	userInfoResponse, err := service.UserInfo(userId)
 
 	if err != nil {
-		c.JSON(http.StatusOK, dto.UserInfoResponse{
-			Response: &dto.Response{
-				StatusCode: 1,
-				StatusMsg:  err.Error(),
-			},
-		})
+		common.ResponseError(c, err)
 		return
 	}
 
