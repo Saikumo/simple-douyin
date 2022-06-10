@@ -22,7 +22,7 @@ func InitDB() {
 	}
 
 	//自动建表
-	if err := DB.AutoMigrate(&entity.User{}); err != nil {
+	if err := DB.AutoMigrate(&entity.User{}, &entity.Video{}); err != nil {
 		panic(err)
 	}
 }

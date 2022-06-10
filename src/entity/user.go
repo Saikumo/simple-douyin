@@ -1,7 +1,8 @@
 package entity
 
 type User struct {
-	Id       int64
-	Username string
-	Password string
+	Id        int64
+	Username  string
+	Password  string
+	VideoList []*Video
 }
