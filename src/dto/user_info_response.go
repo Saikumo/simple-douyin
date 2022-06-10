@@ -1,8 +1,11 @@
 package dto
 
-import "saikumo.org/simple-douyin/src/entity"
+type UserInfo struct {
+	Id       int64
+	Username string `json:"name"`
+}
 
 type UserInfoResponse struct {
 	*Response
-	User *entity.User
+	UserInfo *UserInfo `json:"user"`
 }

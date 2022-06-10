@@ -51,6 +51,9 @@ func (flow *userInfoFlow) packResponse() {
 		Response: &dto.Response{
 			StatusCode: 0,
 		},
-		User: flow.user,
+		UserInfo: &dto.UserInfo{
+			Id:       flow.user.Id,
+			Username: flow.user.Username,
+		},
 	}
 }
