@@ -11,7 +11,7 @@ type userLoginFlow struct {
 	username string
 	password string
 
-	userId int64
+	userId uint
 	token  string
 
 	response *dto.UserLoginResponse
@@ -67,10 +67,10 @@ func (flow *userLoginFlow) login() error {
 	userRepository := repository.GetUserRepository()
 	//验证用户名密码
 	user := userRepository.FindUserByUsernameAndPassword(flow.username, flow.password)
-	if user.Id == 0 {
+	if user.ID == 0 {
 		return common.UsernameOrPasswordIsWrongError
 	}
-	flow.userId = user.Id
+	flow.userId = user.ID
 	//生成token
 	token, err := util.GenerateToken(user)
 	if err != nil {

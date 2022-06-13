@@ -8,19 +8,19 @@ import (
 )
 
 type userInfoFlow struct {
-	userId int64
+	userId uint
 
 	user *entity.User
 
 	response *dto.UserInfoResponse
 }
 
-func UserInfo(userId int64) (*dto.UserInfoResponse, error) {
+func UserInfo(userId uint) (*dto.UserInfoResponse, error) {
 	common.Logger.Infof("获取用户信息，用户id为%d", userId)
 	return newUserInfoFlow(userId).do()
 }
 
-func newUserInfoFlow(userId int64) *userInfoFlow {
+func newUserInfoFlow(userId uint) *userInfoFlow {
 	return &userInfoFlow{
 		userId: userId,
 	}
@@ -39,7 +39,7 @@ func (flow *userInfoFlow) do() (*dto.UserInfoResponse, error) {
 func (flow *userInfoFlow) info() error {
 	userRepository := repository.GetUserRepository()
 	user := userRepository.FindUserByUserId(flow.userId)
-	if user.Id == 0 {
+	if user.ID == 0 {
 		return common.UserIsNotExist
 	}
 	flow.user = user
@@ -52,7 +52,7 @@ func (flow *userInfoFlow) packResponse() {
 			StatusCode: common.SUCCESS_STATUS_CODE,
 		},
 		UserInfo: &dto.UserInfo{
-			Id:       flow.user.Id,
+			Id:       flow.user.ID,
 			Username: flow.user.Username,
 		},
 	}

@@ -40,7 +40,7 @@ func (repository *UserRepository) CreateUser(user *entity.User) error {
 	return DB.Create(user).Error
 }
 
-func (repository *UserRepository) FindUserByUserId(userId int64) *entity.User {
+func (repository *UserRepository) FindUserByUserId(userId uint) *entity.User {
 	var user entity.User
 	DB.Where("id=?", userId).Take(&user)
 	return &user

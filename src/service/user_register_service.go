@@ -12,7 +12,7 @@ type userRegisterFlow struct {
 	username string
 	password string
 
-	userId int64
+	userId uint
 	token  string
 
 	response *dto.UserRegisterResponse
@@ -75,7 +75,7 @@ func (flow *userRegisterFlow) register() error {
 	if err := userRepository.CreateUser(&user); err != nil {
 		return err
 	}
-	flow.userId = user.Id
+	flow.userId = user.ID
 	//生成token
 	token, err := util.GenerateToken(&user)
 	if err != nil {
