@@ -30,7 +30,7 @@ func (repository *UserRepository) FindUserByUsernameAndPassword(username string,
 func (repository *UserRepository) IsUserExistByUsername(username string) bool {
 	var user entity.User
 	DB.Where("username=?", username).Take(&user)
-	if user.Id == 0 {
+	if user.ID == 0 {
 		return false
 	}
 	return true

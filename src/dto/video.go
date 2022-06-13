@@ -1,7 +1,7 @@
 package dto
 
 type Video struct {
-	Id       int64
+	Id       uint
 	UserInfo *UserInfo `json:"author"`
 	PlayUrl  string
 	CoverUrl string

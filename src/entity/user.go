@@ -1,7 +1,9 @@
 package entity
 
+import "gorm.io/gorm"
+
 type User struct {
-	Id        int64
+	gorm.Model
 	Username  string
 	Password  string
 	VideoList []*Video

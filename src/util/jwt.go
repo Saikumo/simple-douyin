@@ -12,7 +12,7 @@ const ISSUER string = "Saikumo"
 var secret []byte = []byte("Saikumo")
 
 type Claims struct {
-	UserId   int64
+	UserId   uint
 	Username string
 	jwt.StandardClaims
 }
@@ -21,7 +21,7 @@ func GenerateToken(user *entity.User) (string, error) {
 	nowTime := time.Now()
 	expireTime := nowTime.Add(7 * 24 * time.Hour)
 	claims := Claims{
-		UserId:   user.Id,
+		UserId:   user.ID,
 		Username: user.Username,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: jwt.At(expireTime),

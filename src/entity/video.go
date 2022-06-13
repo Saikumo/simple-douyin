@@ -1,8 +1,10 @@
 package entity
 
+import "gorm.io/gorm"
+
 type Video struct {
-	Id       int64
-	UserId   int64
+	gorm.Model
+	UserId   uint
 	PlayUrl  string
 	CoverUrl string
 	title    string

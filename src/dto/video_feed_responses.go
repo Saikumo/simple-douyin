@@ -2,6 +2,6 @@ package dto
 
 type VideoFeedResponse struct {
 	*Response
-	NextTime  int64
+	NextTime  uint
 	VideoList []*Video
 }
