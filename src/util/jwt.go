@@ -43,12 +43,12 @@ func CheckToken(token string) (*Claims, error) {
 	}
 	//token无效
 	if !parsedToken.Valid {
-		return nil, common.TokenIsNotValid
+		return nil, common.TokenIsNotValidError
 	}
 	//取出claim 校验过期时间
 	claims := parsedToken.Claims.(*Claims)
 	if time.Now().Unix() > claims.ExpiresAt.Unix() {
-		return nil, common.TokenIsExpired
+		return nil, common.TokenIsExpiredError
 	}
 	return claims, nil
 }

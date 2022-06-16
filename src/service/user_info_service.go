@@ -40,7 +40,7 @@ func (flow *userInfoFlow) info() error {
 	userRepository := repository.GetUserRepository()
 	user := userRepository.FindUserByUserId(flow.userId)
 	if user.ID == 0 {
-		return common.UserIsNotExist
+		return common.UserIsNotExistError
 	}
 	flow.user = user
 	return nil

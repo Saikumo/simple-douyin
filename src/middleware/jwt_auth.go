@@ -16,7 +16,7 @@ func JwtAuth() gin.HandlerFunc {
 		}
 		//没有token
 		if token == "" {
-			common.ResponseError(c, common.TokenIsNotExist)
+			common.ResponseError(c, common.TokenIsNotExistError)
 			return
 		}
 		//校验并解析token

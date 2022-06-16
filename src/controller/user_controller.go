@@ -36,8 +36,8 @@ func UserLogin(c *gin.Context) {
 }
 
 func UserInfo(c *gin.Context) {
-	userIdStr, _ := c.Get("user_id")
-	userId := userIdStr.(uint)
+	userIdAny, _ := c.Get("user_id")
+	userId := userIdAny.(uint)
 
 	userInfoResponse, err := service.UserInfo(userId)
 
