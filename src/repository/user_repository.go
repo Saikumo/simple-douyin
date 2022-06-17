@@ -45,3 +45,7 @@ func (repository *UserRepository) FindUserByUserId(userId uint) *entity.User {
 	DB.Where("id=?", userId).Take(&user)
 	return &user
 }
+
+func (repository *UserRepository) Save(user *entity.User) error {
+	return DB.Save(user).Error
+}

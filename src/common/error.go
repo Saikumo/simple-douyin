@@ -15,7 +15,7 @@ var (
 	TokenIsNotValidError           = errors.New("token不正确")
 	TokenIsExpiredError            = errors.New("token已过期")
 	TokenIsNotExistError           = errors.New("token不存在")
-	UserIsNotExistError            = errors.New("用户不存在")
+	UserNotExistError              = errors.New("用户不存在")
 	VideoTitleIsNullError          = errors.New("视频标题不能为空")
 	VideoTitleOverMaxLengthError   = errors.New(fmt.Sprintf("视频标题不能超过%d个字符", MAX_VIDEO_TITLE_LENGTH))
 	UnsupportedVideoTypeError      = errors.New("不支持的视频文件类型")

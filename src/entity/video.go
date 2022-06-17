@@ -7,5 +7,5 @@ type Video struct {
 	UserId   uint
 	PlayUrl  string
 	CoverUrl string
-	title    string
+	Title    string
 }
