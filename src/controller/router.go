@@ -19,6 +19,12 @@ func InitRouter() {
 	userRouter.POST("/login/", UserLogin)
 	userRouter.GET("/", middleware.JwtAuth(), UserInfo)
 
+	feedRouter := douyinRouter.Group("/feed")
+	feedRouter.GET("/", middleware.JwtAuth(), VideoFeed)
+
+	publishRouter := douyinRouter.Group("/publish")
+	publishRouter.POST("/action/", middleware.JwtAuth(), UserPublish)
+
 	addr := strconv.Itoa(common.Config.GetInt("server.port"))
 	if err := r.Run(":" + addr); err != nil {
 		panic(err)

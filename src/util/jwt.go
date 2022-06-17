@@ -9,7 +9,7 @@ import (
 
 const ISSUER string = "Saikumo"
 
-var secret []byte = []byte("Saikumo")
+var secret = []byte("Saikumo")
 
 type Claims struct {
 	UserId   uint
