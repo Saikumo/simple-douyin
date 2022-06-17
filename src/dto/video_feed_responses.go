@@ -1,7 +1,7 @@
 package dto
 
 type VideoFeedResponse struct {
-	*Response
-	NextTime  uint
-	VideoList []*Video
+	Response
+	NextTime  int64    `json:"next_time"`
+	VideoList []*Video `json:"video_list"`
 }

@@ -1,6 +1,6 @@
 package dto
 
 type UserInfoResponse struct {
-	*Response
+	Response
 	UserInfo *UserInfo `json:"user"`
 }

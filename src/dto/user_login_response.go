@@ -1,7 +1,7 @@
 package dto
 
 type UserLoginResponse struct {
-	*Response
+	Response
 	UserId uint   `json:"user_id"`
 	Token  string `json:"token"`
 }

@@ -48,7 +48,7 @@ func (flow *userInfoFlow) info() error {
 
 func (flow *userInfoFlow) packResponse() {
 	flow.response = &dto.UserInfoResponse{
-		Response: &dto.Response{
+		Response: dto.Response{
 			StatusCode: common.SUCCESS_STATUS_CODE,
 		},
 		UserInfo: &dto.UserInfo{

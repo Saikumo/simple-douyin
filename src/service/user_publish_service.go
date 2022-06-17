@@ -45,7 +45,7 @@ func (flow *userPublishFlow) do() (*dto.Response, error) {
 	if err := flow.userPublish(); err != nil {
 		return nil, err
 	}
-	//打包参数
+	//打包返回值
 	flow.packResponse()
 
 	return flow.response, nil
@@ -92,7 +92,7 @@ func (flow *userPublishFlow) userPublish() error {
 		flow.videoArray = append(flow.videoArray, &entity.Video{
 			UserId:   flow.userId,
 			PlayUrl:  util.GetFileUrl(filename),
-			CoverUrl: util.GetFileUrl(snapshotName),
+			CoverUrl: util.GetFileUrl(snapshotName + ".png"),
 			Title:    flow.title,
 		})
 	}

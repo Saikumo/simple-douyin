@@ -20,7 +20,7 @@ func InitRouter() {
 	userRouter.GET("/", middleware.JwtAuth(), UserInfo)
 
 	feedRouter := douyinRouter.Group("/feed")
-	feedRouter.GET("/", middleware.JwtAuth(), VideoFeed)
+	feedRouter.GET("/", VideoFeed)
 
 	publishRouter := douyinRouter.Group("/publish")
 	publishRouter.POST("/action/", middleware.JwtAuth(), UserPublish)
