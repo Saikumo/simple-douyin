@@ -29,3 +29,11 @@ func (repository *VideoRepository) FindVideoByLimitAndLatestTime(limit int, late
 		Find(&videoList).Error
 	return videoList, err
 }
+
+func (repository *VideoRepository) FindVideoByUserId(userId uint) ([]*entity.Video, error) {
+	var videoList []*entity.Video
+	err := DB.Where("user_id=?", userId).
+		Order("created_at DESC").
+		Find(&videoList).Error
+	return videoList, err
+}

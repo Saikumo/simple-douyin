@@ -97,7 +97,6 @@ func (flow *videoFeedFlow) packResponse() {
 	flow.response = &dto.VideoFeedResponse{
 		Response: dto.Response{
 			StatusCode: common.SUCCESS_STATUS_CODE,
-			StatusMsg:  "",
 		},
 		NextTime:  flow.nextTime.Unix(),
 		VideoList: flow.videoArray,

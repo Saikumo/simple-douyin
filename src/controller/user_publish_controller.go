@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"saikumo.org/simple-douyin/src/common"
 	"saikumo.org/simple-douyin/src/service"
+	"strconv"
 )
 
 func UserPublish(c *gin.Context) {
@@ -25,4 +26,22 @@ func UserPublish(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, userPublishResponse)
+}
+
+func UserPublishList(c *gin.Context) {
+	userIdStr := c.Query("user_id")
+	userId, err := strconv.ParseUint(userIdStr, 10, 64)
+	if err != nil {
+		common.ResponseError(c, err)
+		return
+	}
+
+	userPublishListResponse, err := service.UserPublishList(uint(userId))
+
+	if err != nil {
+		common.ResponseError(c, err)
+		return
+	}
+
+	c.JSON(http.StatusOK, userPublishListResponse)
 }
