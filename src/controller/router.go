@@ -26,6 +26,9 @@ func InitRouter() {
 	publishRouter.POST("/action/", middleware.JwtAuth(), UserPublish)
 	publishRouter.GET("/list/", UserPublishList)
 
+	favoriteRouter := douyinRouter.Group("/favorite")
+	favoriteRouter.POST("/action/", middleware.JwtAuth(), UserFavorite)
+
 	addr := strconv.Itoa(common.Config.GetInt("server.port"))
 	if err := r.Run(":" + addr); err != nil {
 		panic(err)

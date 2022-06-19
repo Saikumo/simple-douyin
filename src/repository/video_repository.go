@@ -37,3 +37,10 @@ func (repository *VideoRepository) FindVideoByUserId(userId uint) ([]*entity.Vid
 		Find(&videoList).Error
 	return videoList, err
 }
+
+func (repository *VideoRepository) FindVideoById(videoId uint) (*entity.Video, error) {
+	var video *entity.Video
+	err := DB.Where("id=?", videoId).
+		Take(&video).Error
+	return video, err
+}
