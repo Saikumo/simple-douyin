@@ -1,2 +1,2 @@
 server:
-	kitex -type protobuf -service relation -I ../../idl/ ../../idl/relation.proto
+	kitex -module saikumo.org/simple-douyin -type protobuf -service relation -I ../../idl/ ../../idl/relation.proto

@@ -1,2 +1,2 @@
 server:
-	kitex -type protobuf -service feed -I ../../idl/ ../../idl/feed.proto
+	kitex -module saikumo.org/simple-douyin -type protobuf -service feed -I ../../idl/ ../../idl/feed.proto

@@ -1,2 +1,2 @@
 user_client:
-	kitex -type protobuf -I ../../idl/ ../../idl/user.proto
+	kitex -module saikumo.org/simple-douyin -type protobuf -I ../../idl/ ../../idl/user.proto

@@ -1,2 +1,2 @@
 server:
-	kitex -type protobuf -service favorite -I ../../idl/ ../../idl/favorite.proto
+	kitex -module saikumo.org/simple-douyin -type protobuf -service favorite -I ../../idl/ ../../idl/favorite.proto
