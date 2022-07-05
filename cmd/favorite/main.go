@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	favorite "saikumo.org/simple-douyin/cmd/favorite/kitex_gen/favorite/favoritesrv"
+	favorite "saikumo.org/simple-douyin/kitex_gen/favorite/favoritesrv"
 )
 
 func main() {

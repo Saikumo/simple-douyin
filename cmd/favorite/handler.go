@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"saikumo.org/simple-douyin/cmd/favorite/kitex_gen/favorite"
+	"saikumo.org/simple-douyin/kitex_gen/favorite"
 )
 
 // FavoriteSrvImpl implements the last service interface defined in the IDL.

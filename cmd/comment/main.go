@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	comment "saikumo.org/simple-douyin/cmd/comment/kitex_gen/comment/commentsrv"
+	comment "saikumo.org/simple-douyin/kitex_gen/comment/commentsrv"
 )
 
 func main() {

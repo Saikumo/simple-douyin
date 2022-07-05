@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"saikumo.org/simple-douyin/cmd/publish/kitex_gen/publish"
+	"saikumo.org/simple-douyin/kitex_gen/publish"
 )
 
 // PublishSrvImpl implements the last service interface defined in the IDL.

@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"saikumo.org/simple-douyin/cmd/relation/kitex_gen/relation"
+	"saikumo.org/simple-douyin/kitex_gen/relation"
 )
 
 // RelationSrvImpl implements the last service interface defined in the IDL.

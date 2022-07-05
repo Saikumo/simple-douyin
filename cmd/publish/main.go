@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	publish "saikumo.org/simple-douyin/cmd/publish/kitex_gen/publish/publishsrv"
+	publish "saikumo.org/simple-douyin/kitex_gen/publish/publishsrv"
 )
 
 func main() {

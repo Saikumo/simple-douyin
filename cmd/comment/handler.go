@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"saikumo.org/simple-douyin/cmd/comment/kitex_gen/comment"
+	"saikumo.org/simple-douyin/kitex_gen/comment"
 )
 
 // CommentSrvImpl implements the last service interface defined in the IDL.

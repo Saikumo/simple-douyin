@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	relation "saikumo.org/simple-douyin/cmd/relation/kitex_gen/relation/relationsrv"
+	relation "saikumo.org/simple-douyin/kitex_gen/relation/relationsrv"
 )
 
 func main() {
